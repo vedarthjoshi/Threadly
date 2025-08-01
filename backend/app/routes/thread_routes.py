@@ -1,8 +1,9 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
+from sqlalchemy import or_
+
 from ..models.thread import Thread
 from .. import db
-
 thread_bp = Blueprint('thread_bp', __name__, url_prefix='/api/threads')
 
 @thread_bp.route('/', methods=['POST'])
@@ -79,3 +80,26 @@ def delete_thread(id):
     db.session.delete(thread)
     db.session.commit()
     return jsonify({"message": "Thread deleted", "id": id}), 200
+
+@thread_bp.route("/search", methods=["GET"])
+def search_threads():
+    query = request.args.get("q", "")
+    if not query:
+        return jsonify(error="Query parameter 'q' is required"), 400
+
+    threads = Thread.query.filter(
+        or_(
+            Thread.title.ilike(f"%{query}%"),
+            Thread.content.ilike(f"%{query}%")  # Optional
+        )
+    ).all()
+
+    return jsonify([
+        {
+            "id": thread.id,
+            "title": thread.title,
+            "content": thread.content,
+            "author_id": thread.author_id,
+            "created_at": thread.created_at.isoformat()
+        } for thread in threads
+    ])
