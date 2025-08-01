@@ -1,0 +1,22 @@
+/* @import "tailwindcss"; */
+
+/* @theme {
+    --font-display: "Oswald", "sans-serif";
+} */
+
+@import "tailwindcss";
+
+@theme {
+  --font-virgil: "virgil", sans-serif;
+  --color-primary: oklch(0.50 0.1 250);
+}
+
+/* @layer can still be used for base styles */
+@layer base {
+  @font-face {
+    font-family: "virgil";
+    src: url('./assets/fonts/Virgil.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+}

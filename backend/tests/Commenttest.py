@@ -1,8 +1,8 @@
 import requests
 
 BASE = "http://127.0.0.1:5000/api"
-EMAIL    = "testuser@example.com"
-PASSWORD = "testpassword"
+EMAIL    = "harsh@gmail.com"
+PASSWORD = "123456"
 
 # 1) Login
 login = requests.post(f"{BASE}/auth/login", json={"email": EMAIL, "password": PASSWORD})

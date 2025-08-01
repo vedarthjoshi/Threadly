@@ -5,8 +5,8 @@ LOGIN_URL  = f"{API_ROOT}/auth/login"
 THREAD_URL = f"{API_ROOT}/threads"
 
 # Replace with your actual test user
-EMAIL    = "swasti@gmail.com"
-PASSWORD = "swasti123"
+EMAIL    = "harsh@gmail.com"
+PASSWORD = "123456"
 
 # 1️⃣ Login
 login = requests.post(LOGIN_URL, json={"email": EMAIL, "password": PASSWORD})
