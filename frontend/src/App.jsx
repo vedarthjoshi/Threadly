@@ -2,15 +2,15 @@ import { useState } from 'react'
 import './App.css'
 import Navbar from './componants/Navbar/Navbar'
 import ExpandingSearchBarTailwind from './componants/expandingsearchbar/expandingsearchbar'
-import Search from './componants/search/search'
+import Threadlist from './componants/Threadlist/ThreadList'
 
 function App() {
 
   return (
     <>
       <div>
-        <div className="font-virgil w-full h-40  m-auto p-20 text-center ">
-          <span className='mt-5 text-7xl'>
+        <div className="font-virgil w-full h-10  m-auto p-10 text-center mb-30">
+          <span className='mt-2 text-9xl'>
             Threadly
           </span>
         </div>
@@ -19,15 +19,9 @@ function App() {
             <Navbar/>
           </div>
 
-          <div className=' m-auto mt-20 p-3.5 w-5/6 h-screen '>
-            <div className='font-virgil flex  justify-center  text-5xl p-5'>
-              <div className="border-b-4 border-0 border-black">
-                <ExpandingSearchBarTailwind />
-              </div>
-            </div>
-
-            <div>
-              <Search/>
+          <div className=' m-auto  mt-20 ml-auto p-3.5 w-5/6 h-screen '>
+            <div className=' flex justify-center'>
+              <Threadlist/>
             </div>
           </div>
 

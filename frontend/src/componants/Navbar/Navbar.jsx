@@ -15,7 +15,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
   return (
     <div 
       className={`
-        bg-slate-800 font-virgil text-white h-screen fixed left-0 top-0 pt-20 shadow-lg z-20
+        bg-black font-virgil text-white h-screen fixed left-0 top-0 pt-20 shadow-lg z-20
         transition-all duration-300 ease-in-out
         ${isHovered ? 'w-1/8' : 'w-0'}
       `}
@@ -29,7 +29,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
             onClick={() => setActiveSection(item.id)}
             className={`
               relative cursor-pointer  p-3 rounded-lg transition-all duration-300 ease-in-out
-              hover:bg-slate-700 hover:shadow-md
+             
               ${activeSection === item.id ? 'bg-slate-700 shadow-md' : ''}
               group
             `}
@@ -37,7 +37,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
 
           <div className="flex items-center space-x-3">
               <span className={`
-                font-medium group-hover:text-amber-300 transition-all duration-300 whitespace-nowrap
+                font-medium group-hover:text-pink-400 transition-all duration-300 whitespace-nowrap
                 ${isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}
               `}>
                 {item.label}
@@ -46,7 +46,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
             
             {/* Animated underline */}
             <div className={`
-              absolute bottom-0 left-2 right-2 h-0.5 bg-amber-300 transform origin-left transition-transform duration-300
+              absolute bottom-0 left-2 right-2 h-0.5 bg-pink-300 transform origin-left transition-transform duration-300
               ${activeSection === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}
             `}></div>
             
